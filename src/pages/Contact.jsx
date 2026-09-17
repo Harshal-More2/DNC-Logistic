@@ -1,6 +1,43 @@
 import "./Contact.css";
+import { useState } from "react";
+
+const INITIAL_FORM = {
+  name: "",
+  phone: "",
+  email: "",
+  service: "",
+  message: "",
+};
 
 function Contact() {
+  const [formData, setFormData] = useState(INITIAL_FORM);
+  const [formStatus, setFormStatus] = useState("");
+  const [statusType, setStatusType] = useState("");
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((current) => ({
+      ...current,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const recipients = "darshan@dnclogisticsllp.com,sales@dnclogisticsllp.com";
+    const subject = encodeURIComponent(`New Enquiry: ${formData.service}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nService: ${formData.service}\n\nMessage:\n${formData.message}`
+    );
+
+    window.location.href = `mailto:${recipients}?subject=${subject}&body=${body}`;
+
+    setFormStatus("Your email draft was opened. Please click send in your mail app.");
+    setStatusType("success");
+    setFormData(INITIAL_FORM);
+  };
+
   return (
     <main className="contact-page">
 
@@ -141,7 +178,7 @@ function Contact() {
             </p>
 
 
-            <form className="contact-form">
+            <form className="contact-form" onSubmit={handleSubmit}>
 
               {/* NAME + PHONE */}
               <div className="form-row">
@@ -152,7 +189,11 @@ function Contact() {
 
                   <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="Enter your name"
+                    required
                   />
 
                 </div>
@@ -164,7 +205,11 @@ function Contact() {
 
                   <input
                     type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     placeholder="Enter your number"
+                    required
                   />
 
                 </div>
@@ -179,7 +224,11 @@ function Contact() {
 
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="Enter your email"
+                  required
                 />
 
               </div>
@@ -190,7 +239,12 @@ function Contact() {
 
                 <label>Service Required</label>
 
-                <select defaultValue="">
+                <select
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  required
+                >
 
                   <option value="" disabled>
                     Select a service
@@ -214,8 +268,12 @@ function Contact() {
                 <label>Message</label>
 
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows="5"
                   placeholder="Tell us about your shipment..."
+                  required
                 ></textarea>
 
               </div>
@@ -229,6 +287,12 @@ function Contact() {
                 Send Enquiry
                 <span>→</span>
               </button>
+
+              {formStatus && (
+                <p className={`contact-form-status ${statusType}`}>
+                  {formStatus}
+                </p>
+              )}
 
             </form>
 

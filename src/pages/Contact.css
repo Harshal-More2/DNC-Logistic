@@ -403,6 +403,20 @@
   background: #0d7471;
 }
 
+.contact-form-status {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.contact-form-status.success {
+  color: #0d7471;
+}
+
+.contact-form-status.error {
+  color: #b33a3a;
+}
+
 
 /* =========================================================
    MAP
