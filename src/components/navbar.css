@@ -1,0 +1,536 @@
+/* =========================================================
+   DNC LOGISTICS — NAVBAR
+   FINAL RESPONSIVE VERSION
+========================================================= */
+
+.navbar {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(16, 47, 61, 0.06);
+}
+
+/* =====================================================
+   LOGO IMAGE
+===================================================== */
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+}
+
+.navbar-logo-image {
+    display: block;
+    width: 260px;
+    height: auto;
+    max-height: 70px;
+    object-fit: contain;
+}
+
+
+/* =====================================================
+   MOBILE LOGO
+===================================================== */
+
+@media (max-width: 700px) {
+    .navbar-logo-image {
+        width: 190px;
+        max-height: 58px;
+    }
+    .navbar-logo-image {
+        width: 190px;
+        max-height: 52px;
+    }
+
+}
+
+@media (max-width: 380px) {
+    .navbar-logo-image {
+        width: 175px;
+        max-height: 52px;
+    }
+    .navbar-logo-image {
+        width: 160px;
+        max-height: 44px;
+    }
+
+}
+
+/* =========================================================
+   LOGO IMAGE — RESPONSIVE
+========================================================= */
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: auto;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.navbar-logo-image {
+    display: block;
+    width: 260px;
+    height: auto;
+    max-height: 56px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.navbar-top {
+    height: 50px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #102f3d;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.navbar-top-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-top-left span {
+    white-space: nowrap;
+}
+
+.navbar-social {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar-social a {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.navbar-social a:hover {
+    background: #1f8b8b;
+    border-color: #1f8b8b;
+}
+
+/* =========================================================
+   MAIN NAVBAR
+========================================================= */
+
+.navbar-main {
+    height: 60px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid #e8edef;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.navbar-links {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+.navbar-links>a:not(.quote-btn) {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #182b34;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.25s ease;
+}
+
+.navbar-links>a:not(.quote-btn)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: #1f8b8b;
+    transition: width 0.25s ease;
+}
+
+.navbar-links>a:not(.quote-btn):hover,
+.navbar-links>a:not(.quote-btn).active {
+    color: #1f8b8b;
+}
+
+.navbar-links>a:not(.quote-btn).active::after {
+    width: 100%;
+}
+
+/* =========================================================
+   GET A QUOTE
+========================================================= */
+
+.quote-btn {
+    height: 50px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: #218b8b;
+    color: #ffffff !important;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 8px 25px rgba(33, 139, 139, 0.18);
+    transition: 0.25s ease;
+}
+
+.quote-btn span {
+    font-size: 19px;
+    transition: transform 0.25s ease;
+}
+
+.quote-btn:hover {
+    background: #176f70;
+    transform: translateY(-2px);
+}
+
+.quote-btn:hover span {
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   MOBILE HAMBURGER
+========================================================= */
+
+.menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #102f3d;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* =========================================================
+   HAMBURGER → X
+========================================================= */
+
+.menu-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================================
+   MOBILE MENU BASE
+========================================================= */
+
+.mobile-menu {
+    display: none;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .navbar-links {
+        gap: 24px;
+    }
+
+    .navbar-links>a:not(.quote-btn) {
+        font-size: 13px;
+    }
+
+    .quote-btn {
+        padding: 0 20px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .navbar-top {
+        padding: 0 4%;
+        font-size: 12px;
+    }
+
+    .navbar-top-left {
+        gap: 7px;
+    }
+
+    .navbar-main {
+        padding: 0 4%;
+    }
+
+    .navbar-links {
+        gap: 17px;
+    }
+
+    .logo-text {
+        letter-spacing: 3px;
+    }
+    .navbar-logo-image {
+        width: 220px;
+        max-height: 54px;
+    }
+
+}
+
+/* =========================================================
+   MOBILE — 700px
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .navbar-top {
+        display: none;
+    }
+
+    .navbar-main {
+        position: relative;
+        width: 100%;
+        height: 86px;
+        overflow: visible;
+        padding: 0 26px;
+        background: #ffffff;
+        border-bottom: 1px solid #edf1f2;
+        box-sizing: border-box;
+    }
+
+    /* Desktop navigation hidden */
+
+    .navbar-links {
+        display: none !important;
+    }
+
+    /* Hamburger visible */
+
+    .menu-toggle {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    .menu-toggle span {
+        width: 26px;
+        height: 2px;
+        background: #102f3d;
+    }
+
+    /* Mobile dropdown */
+
+    .mobile-menu {
+        position: absolute;
+        top: 86px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 8px 26px 22px;
+        background: #ffffff;
+        border-top: 1px solid #edf1f2;
+        box-shadow: 0 18px 40px rgba(16, 47, 61, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-12px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        z-index: 10000;
+    }
+
+    .mobile-menu.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    /* Mobile links */
+
+    .mobile-menu>a:not(.mobile-quote) {
+        display: block;
+        padding: 17px 4px;
+        color: #182b34;
+        border-bottom: 1px solid #edf1f2;
+        text-decoration: none;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        transition: color 0.25s ease, padding-left 0.25s ease;
+    }
+
+    .mobile-menu>a:not(.mobile-quote):hover,
+    .mobile-menu>a:not(.mobile-quote).active {
+        color: #159b91;
+        padding-left: 10px;
+    }
+
+    /* Mobile quote */
+
+    .mobile-menu .mobile-quote {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 50px;
+        margin-top: 18px;
+        padding: 0 18px;
+        box-sizing: border-box;
+        background: #218b8b;
+        color: #ffffff;
+        border-radius: 4px;
+        text-decoration: none;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        transition: background 0.25s ease;
+    }
+
+    .mobile-menu .mobile-quote span {
+        font-size: 19px;
+        transition: transform 0.25s ease;
+    }
+
+    .mobile-menu .mobile-quote:hover {
+        background: #176f70;
+    }
+
+    .mobile-menu .mobile-quote:hover span {
+        transform: translateX(4px);
+    }
+}
+
+/* =========================================================
+   SMALL PHONES — 480px
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .navbar-main {
+        height: 78px;
+        padding: 0 20px;
+    }
+
+    .menu-toggle {
+        width: 42px;
+        height: 42px;
+    }
+
+    .menu-toggle span {
+        width: 24px;
+    }
+
+    .mobile-menu {
+        top: 78px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .navbar-logo-image {
+        width: 175px;
+        max-height: 48px;
+    }
+
+}
+
+/* =========================================================
+   VERY SMALL PHONES — 380px
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .navbar-main {
+        height: 72px;
+        padding: 0 15px;
+    }
+
+    .menu-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .menu-toggle span {
+        width: 22px;
+    }
+
+    .mobile-menu {
+        top: 72px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* =========================================================
+   ACCESSIBILITY / TOUCH
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .navbar-social a:hover,
+    .quote-btn:hover,
+    .mobile-menu>a:not(.mobile-quote):hover,
+    .mobile-menu .mobile-quote:hover {
+        transform: none;
+    }
+}
